@@ -51,7 +51,7 @@ namespace ResturantNS
       SqlDataReader rdr = null;
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("SELECT * FROM cuisines;", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM cuisine;", conn);
       rdr = cmd.ExecuteReader();
 
       while(rdr.Read())
@@ -80,7 +80,7 @@ namespace ResturantNS
       SqlDataReader rdr;
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("INSERT INTO cuisines (name) OUTPUT INSERTED.id VALUES (@CuisineName);", conn);
+      SqlCommand cmd = new SqlCommand("INSERT INTO cuisine (name) OUTPUT INSERTED.id VALUES (@CuisineName);", conn);
 
       SqlParameter nameParameter = new SqlParameter();
       nameParameter.ParameterName = "@CuisineName";
@@ -106,7 +106,7 @@ namespace ResturantNS
     {
       SqlConnection conn = DB.Connection();
       conn.Open();
-      SqlCommand cmd = new SqlCommand("DELETE FROM cuisines;", conn);
+      SqlCommand cmd = new SqlCommand("DELETE FROM cuisine;", conn);
       cmd.ExecuteNonQuery();
     }
 
@@ -116,7 +116,7 @@ namespace ResturantNS
       SqlDataReader rdr = null;
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("SELECT * FROM cuisines WHERE id = @CuisineId;", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM cuisine WHERE id = @CuisineId;", conn);
       SqlParameter cuisineIdParameter = new SqlParameter();
       cuisineIdParameter.ParameterName = "@CuisineId";
       cuisineIdParameter.Value = id.ToString();
