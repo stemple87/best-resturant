@@ -116,6 +116,36 @@ namespace ResturantNS
       Assert.Equal(newName, result);
     }
 
+    [Fact]
+    public void Test_Delete_DeletesCuisineFromDatabase()
+    {
+      //Arrange
+      string name1 = "Home stuff";
+      Cuisine testCuisine1 = new Cuisine(name1);
+      testCuisine1.Save();
+
+      string name2 = "Work stuff";
+      Cuisine testCuisine2 = new Cuisine(name2);
+      testCuisine2.Save();
+
+      Resturant testResturant1 = new Resturant("Mow the lawn", "yep", testCuisine1.GetId());
+      testResturant1.Save();
+      Resturant testResturant2 = new Resturant("Send emails", "stuff", testCuisine2.GetId());
+      testResturant2.Save();
+
+      //Act
+      testCuisine1.Delete();
+      List<Cuisine> resultCategories = Cuisine.GetAll();
+      List<Cuisine> testCuisineList = new List<Cuisine> {testCuisine2};
+
+      List<Resturant> resultResturants = Resturant.GetAll();
+      List<Resturant> testResturantList = new List<Resturant> {testResturant2};
+
+      //Assert
+      Assert.Equal(testCuisineList, resultCategories);
+      Assert.Equal(testResturantList, resultResturants);
+    }
+
     public void Dispose()
     {
       Resturant.DeleteAll();

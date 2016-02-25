@@ -1,0 +1,17 @@
+<h2>Here are all the resturants in this cuisine:</h2>
+
+@if (@Model["resturants"].Count == 0)
+{
+  <p>No resturants have been added yet!</p>
+}
+else
+{
+  <ol>
+    @foreach (var resturant in @Model["resturants"])
+    {
+      <li>@resturant.GetName()</li>
+    }
+  </ol>
+}
+<p><a href="/resturants/new">Add a new resturant</a></p>
+<p><a href="/">Return to Main Page</a></p>
