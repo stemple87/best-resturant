@@ -98,6 +98,24 @@ namespace ResturantNS
       Assert.Equal(testResturantList, resultResturantList);
     }
 
+    [Fact]
+    public void Test_Update_UpdatesCuisineInDatabase()
+    {
+      //Arrange
+      string name = "Home stuff";
+      Cuisine testCuisine = new Cuisine(name);
+      testCuisine.Save();
+      string newName = "Work stuff";
+
+      //Act
+      testCuisine.Update(newName);
+
+      string result = testCuisine.GetName();
+
+      //Assert
+      Assert.Equal(newName, result);
+    }
+
     public void Dispose()
     {
       Resturant.DeleteAll();
