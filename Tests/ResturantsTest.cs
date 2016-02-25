@@ -23,10 +23,21 @@ namespace ResturantNS
     }
 
     [Fact]
+    public void Test_Equal_ReturnsTrueIfDescriptionsAreTheSame()
+    {
+      //Arrange, Act
+      Resturant firstResturant = new Resturant("Mow the lawn", "ello", 1);
+      Resturant secondResturant = new Resturant("Mow the lawn", "ello", 1);
+
+      //Assert
+      Assert.Equal(firstResturant, secondResturant);
+    }
+
+    [Fact]
     public void Test_Save_AssignsIdToObject()
     {
       //Arrange
-      Resturant testResturant = new Resturant("Mow the lawn", 1);
+      Resturant testResturant = new Resturant("Mow the lawn", "ello", 1);
 
       //Act
       testResturant.Save();
@@ -43,7 +54,7 @@ namespace ResturantNS
     public void Test_Find_FindsResturantInDatabase()
     {
       //Arrange
-      Resturant testResturant = new Resturant("Mow the lawn", 1);
+      Resturant testResturant = new Resturant("Mow the lawn", "Ello", 1);
       testResturant.Save();
 
       //Act
@@ -52,9 +63,6 @@ namespace ResturantNS
       //Assert
       Assert.Equal(testResturant, foundResturant);
     }
-
-
-
 
     public void Dispose()
     {

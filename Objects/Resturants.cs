@@ -170,7 +170,7 @@ namespace ResturantNS
       SqlDataReader rdr = null;
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("SELECT * FROM Resturant WHERE id = @ResturantId;", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM resturants WHERE id = @ResturantId;", conn);
       SqlParameter resturantIdParameter = new SqlParameter();
       resturantIdParameter.ParameterName = "@ResturantId";
       resturantIdParameter.Value = id.ToString();
