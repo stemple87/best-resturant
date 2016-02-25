@@ -79,7 +79,7 @@ namespace ResturantNS
         bool dateTimeEquality = (this.GetNewDate() == newResturant.GetNewDate());
         bool locationEquality = (this.GetLocation() == newResturant.GetLocation());
         bool cuisineEquality = this.GetCuisineId() == newResturant.GetCuisineId();
-        return (idEquality && nameEquality && cuisineEquality);
+        return (idEquality && nameEquality && dateTimeEquality && locationEquality && cuisineEquality);
       }
     }
 
