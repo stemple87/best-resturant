@@ -1,5 +1,10 @@
-<form action="/cuisines/new" method="post">
-  <label for="cuisine-name">Cuisine name</label>
-  <input id="cuisine-name" name="cuisine-name" type="text">
-  <button type="submit">Add</button>
-</form>
+@Html.Partial("head.cshtml")
+<div class="container">
+<h1>Add Cuisine</h1>
+<hr />
+  <form action="/cuisines/new" method="post">
+    <label for="cuisine-name">Cuisine name</label>
+    <input id="cuisine-name" name="cuisine-name" type="text">
+    <button type="submit">Add</button>
+  </form>
+</div>

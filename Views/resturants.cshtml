@@ -1,22 +1,27 @@
-@if (@Model.Count == 0)
-{
-  <p>No resturants have been added yet!</p>
-}
-else
-{
-  <h1>Here is your list of resturants:</h1>
-  <ul>
-    @foreach (var resturant in Model)
-    {
-      <li>Name: @resturant.GetName()</li>
-      <li>Location: @resturant.GetLocation()</li>
-      <li>Added: @resturant.GetNewDate().ToString("MM/dd/yyyy")</li>
+@Html.Partial("head.cshtml")
+<div class="container">
+  @if (@Model.Count == 0)
+  {
+    <h1>No resturants have been added yet!</h1>
+    <hr />
+  }
+  else
+  {
+    <h1>Here is your list of resturants:</h1>
+    <hr />
+    <ul>
+      @foreach (var resturant in Model)
+      {
+        <li>Name: @resturant.GetName()</li>
+        <li>Location: @resturant.GetLocation()</li>
+        <li>Added: @resturant.GetNewDate().ToString("MM/dd/yyyy")</li>
 
-    }
-  </ul>
-  <form action="/resturants/delete" method="post">
-    <button type="submit">Clear all resturants</button>
-  </form>
-}
-<p><a href="/resturants/new">Add a new resturant</a></p>
-<p><a href="/">Return home</a></p>
+      }
+    </ul>
+    <form action="/resturants/delete" method="post">
+      <button type="submit">Clear all resturants</button>
+    </form>
+  }
+  <p><a href="/resturants/new">Add a new resturant</a></p>
+  <p><a href="/">Return home</a></p>
+</div>
